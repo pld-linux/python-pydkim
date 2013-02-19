@@ -11,7 +11,7 @@ URL:		http://hewgill.com/pydkim/
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-dns
 BuildRequires:	rpm-pythonprov
-%pyrequires_eq	python-modules
+Requires:	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,15 +27,21 @@ Biblioteka Pythona do tworzenia i weryfikowania podpisu DKIM
 %setup -q -n pydkim-%{version}
 
 %build
-env CFLAGS="%{rpmcflags}" %{__python} setup.py build
+CC="%{__cc}" \
+CFLAGS="%{rpmcflags}" \
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-python -- setup.py install --root=$RPM_BUILD_ROOT --optimize=2
+%{__python} setup.py install \
+	--skip-build \
+	--optimize=2 \
+	--root=$RPM_BUILD_ROOT
+
+%py_postclean
 
 # package those scripts as docs
 %{__rm} -r $RPM_BUILD_ROOT%{_bindir}
-%{py_postclean}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
