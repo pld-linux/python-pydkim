@@ -12,6 +12,7 @@ BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-dns
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
