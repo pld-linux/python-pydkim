@@ -10,7 +10,6 @@ Source0:	http://hewgill.com/pydkim/pydkim-%{version}.tar.gz
 URL:		http://hewgill.com/pydkim/
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-dns
-BuildRequires:	python-hashlib
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
