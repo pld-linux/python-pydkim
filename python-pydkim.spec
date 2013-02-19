@@ -32,15 +32,15 @@ env CFLAGS="%{rpmcflags}" %{__python} setup.py build
 rm -rf $RPM_BUILD_ROOT
 python -- setup.py install --root=$RPM_BUILD_ROOT --optimize=2
 
+# package those scripts as docs
+%{__rm} -r $RPM_BUILD_ROOT%{_bindir}
+%{py_postclean}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc docs/*.html docs/*.css
-%dir %{py_sitedir}/pydkim
-%{py_sitedir}/*.egg-info
-%attr(755,root,root) %{py_sitedir}/pydkim/*.so
-%{py_sitedir}/pydkim/*.py[co]
-%dir %{py_sitedir}/pydkim/constants
-%{py_sitedir}/pydkim/constants/*.py[co]
+%doc ChangeLog README TODO dkimsign.py dkimverify.py
+%{py_sitescriptdir}/*.egg-info
+%{py_sitescriptdir}/*.py[co]
