@@ -2,7 +2,7 @@ Summary:	Python module that implements DKIM (DomainKeys Identified Mail) email s
 Summary(pl.UTF-8):	Biblioteka Pythona do tworzenia i weryfikowania podpisu DKIM (DomainKeys Identified Mail)
 Name:		python-pydkim
 Version:	0.3
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries/Python
 Source0:	http://hewgill.com/pydkim/pydkim-%{version}.tar.gz
