@@ -8,6 +8,7 @@ Group:		Libraries/Python
 Source0:	http://hewgill.com/pydkim/pydkim-%{version}.tar.gz
 # Source0-md5:	530769b4e79f41341020c4b28f340ea5
 URL:		http://hewgill.com/pydkim/
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-dns
 BuildRequires:	rpm-pythonprov
